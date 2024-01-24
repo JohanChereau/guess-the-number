@@ -1,4 +1,8 @@
-import { displayGameRules, displayVictoryMessage } from "./utils/prompt.js";
+import {
+  askToPlayAgain,
+  displayGameRules,
+  displayVictoryMessage,
+} from "./utils/prompt.js";
 import { generateRandomIntegerBetween } from "./utils/random.js";
 import { createAttemptsCounter } from "./utils/counter.js";
 import { guessTheNumber } from "./game.js";
@@ -8,16 +12,23 @@ const bounds = {
   UPPER: 100,
 };
 
-const targetNumber = generateRandomIntegerBetween(bounds.LOWER, bounds.UPPER);
-const guessingAttemptsCounter = createAttemptsCounter();
-
 const startGame = (bounds) => {
   displayGameRules(bounds);
-  guessTheNumber(targetNumber, bounds, guessingAttemptsCounter);
-  displayVictoryMessage(
-    targetNumber,
-    guessingAttemptsCounter.getGuessingAttempts()
-  );
+
+  do {
+    const targetNumber = generateRandomIntegerBetween(
+      bounds.LOWER,
+      bounds.UPPER
+    );
+    console.log(targetNumber);
+    const guessingAttemptsCounter = createAttemptsCounter();
+
+    guessTheNumber(targetNumber, bounds, guessingAttemptsCounter);
+    displayVictoryMessage(
+      targetNumber,
+      guessingAttemptsCounter.getGuessingAttempts()
+    );
+  } while (askToPlayAgain());
 };
 
 startGame(bounds);
