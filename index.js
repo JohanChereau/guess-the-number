@@ -20,7 +20,6 @@ const startGame = (bounds) => {
       bounds.LOWER,
       bounds.UPPER
     );
-    console.log(targetNumber);
     const guessingAttemptsCounter = createAttemptsCounter();
 
     guessTheNumber(targetNumber, bounds, guessingAttemptsCounter);
