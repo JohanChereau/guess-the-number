@@ -1,0 +1,15 @@
+{
+  "name": "guess-the-number",
+  "version": "1.0.0",
+  "description": "Guess the number : the game",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Johan Chereau",
+  "license": "ISC",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
+}
